@@ -14,11 +14,9 @@ import {
   Alert,
   InputAdornment,
 } from "@mui/material";
+
 import SearchIcon from "@mui/icons-material/Search";
 import CheckroomIcon from "@mui/icons-material/Checkroom";
-import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
-import SpeedIcon from "@mui/icons-material/Speed";
-import PersonIcon from "@mui/icons-material/Person";
 import type { CategoriesResponse } from "../types/api";
 import { getCategories } from "../services/api";
 
@@ -28,12 +26,6 @@ const CATEGORY_ICONS: Record<string, string> = {
   shoes: "\uD83D\uDC5F",
   accessory: "\uD83D\uDC5C",
 };
-
-const FEATURES = [
-  { icon: <AutoAwesomeIcon fontSize="large" />, title: "AI-Powered", desc: "Deep learning compatibility model scores outfit combinations" },
-  { icon: <PersonIcon fontSize="large" />, title: "Personalized", desc: "Recommendations adapt to your browsing and purchase history" },
-  { icon: <SpeedIcon fontSize="large" />, title: "Real-Time", desc: "FAISS-powered retrieval delivers results in milliseconds" },
-];
 
 export default function Home() {
   const navigate = useNavigate();
@@ -123,23 +115,6 @@ export default function Home() {
         </Grid>
       )}
 
-      {/* Features */}
-      <Typography variant="h5" sx={{ mb: 2 }}>
-        How It Works
-      </Typography>
-      <Grid container spacing={3} sx={{ mb: 4 }}>
-        {FEATURES.map((f) => (
-          <Grid size={{ xs: 12, md: 4 }} key={f.title}>
-            <Card sx={{ height: "100%" }}>
-              <CardContent sx={{ textAlign: "center", py: 4 }}>
-                <Box sx={{ color: "secondary.main", mb: 1 }}>{f.icon}</Box>
-                <Typography variant="h6" gutterBottom>{f.title}</Typography>
-                <Typography variant="body2" color="text.secondary">{f.desc}</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
     </Box>
   );
 }
