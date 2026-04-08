@@ -36,7 +36,15 @@ source venv/bin/activate        # macOS/Linux
 # venv\Scripts\activate         # Windows
 ```
 
-### 2. Install the package with all dependencies
+### 2. Install PyTorch (CPU)
+
+```bash
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+```
+
+> For GPU support, see the [PyTorch install guide](https://pytorch.org/get-started/locally/) and use the appropriate CUDA index URL instead.
+
+### 3. Install the package with all dependencies
 
 ```bash
 pip install -e ".[dev]"
@@ -126,7 +134,8 @@ The project includes a `.devcontainer/devcontainer.json` that automatically conf
 
 The devcontainer handles the following on creation:
 - Sets up **Python 3.11** base image
-- Runs `pip install -e ".[dev]"` to install all dependencies
+- Installs **PyTorch CPU** from the official PyTorch index
+- Runs `pip install -e ".[dev]"` to install all remaining dependencies
 - Generates the synthetic dataset on first start
 - Forwards port **8000** (API) and **6379** (Redis)
 - Installs Python and Pylance VS Code extensions
