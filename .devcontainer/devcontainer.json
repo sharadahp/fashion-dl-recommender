@@ -1,10 +1,7 @@
 {
   "name": "Fashion DL Recommender",
   "image": "mcr.microsoft.com/devcontainers/python:3.11",
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  },
-  "postCreateCommand": "pip install --upgrade pip && pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install -e '.[dev]'",
+"postCreateCommand": "pip install --upgrade pip && pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install -e '.[dev]'",
   "postStartCommand": "python scripts/generate_dataset.py",
   "forwardPorts": [8000, 6379],
   "portsAttributes": {
